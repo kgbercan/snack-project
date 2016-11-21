@@ -1,4 +1,7 @@
 qNum = 0;
+aNum = 0;
+// seasonal > healthy > prep > hot
+answers = {"true": {"true": {"true": {"true": "SNACK A: seasonal, healthy, prep, hot", "false": "SNACK B: seasonal, healthy, prep, cold"}, "false": {"true": "SNACK C: seasonal, healthy, no prep, hot", "false": "SNACK D: seasonal, healthy, no prep, cold"}},"false": {"true": {"true": "SNACK E: seasonal, unhealthy, prep, hot","false": "SNACK F: seasonal, unhealthy, prep, cold"}, "false": {"true": "SNACK G: seasonal, unhealthy, no prep, hot","false": "SNACK H: seasonal, unhealthy, no prep, cold"}},}, "false": {"true": {"true": {"true": "SNACK I: not seasonal, healthy, prep, hot", "false": "SNACK J: not seasonal, healthy, prep, cold"}, "false": {"true": "SNACK K: not seasonal, healthy, no prep, hot", "false": "SNACK L: not seasonal, healthy, no prep, cold"}}, "false": {"true": {"true": "SNACK M: not seasonal, unhealthy, prep, hot", "false": "SNACK N: not seasonal, unhealthy, prep, cold"}, "false": {"true": "SNACK O: not seasonal, unhealthy, no prep, hot", "false": "SNACK P: not seasonal, unhealthy, no prep, cold"}},},};
 
 $(document).ready(function(){
    $("#start").click(start)
@@ -25,16 +28,10 @@ function answer(ans){
 
 function getQuestions(){
    $.get("questions.xml", function(data){
-      console.log("getting questions");
       var $q = $(data).find("q")
-      console.log("finding q: " + $q);
       $("#loading").addClass("hidden")
-      console.log("qNum: " + qNum);
-      console.log("q length: " + $q.length);
       if(qNum < $q.length){
-         console.log("in the if");
          $("#question").html($q[qNum].firstChild.nodeValue)
-         console.log($q[qNum].firstChild.nodeValue);
       }
       else {
          $("#question").html("You've completed the quiz.")
@@ -43,8 +40,16 @@ function getQuestions(){
    });
 }
 
-function saveAnswer(){
+function saveAnswer(ans){
    $.get("questions.xml", function(data){
-      
+      var $a = $(data).find("a")
+      if (aNum < $a.length){
+         $a[aNum].firstChild.nodeValue = ans
+         answers = answers[ans]
+      }
+      else{
+         $("#question").html(answers)
+      }
+      aNum += 1
    });
 }
