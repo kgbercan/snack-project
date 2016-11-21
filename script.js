@@ -18,6 +18,11 @@ function start(){
    getQuestions();
 }
 
+function answer(ans){
+   getQuestions();
+   saveAnswer(ans);
+}
+
 function getQuestions(){
    $.get("questions.xml", function(data){
       console.log("getting questions");
@@ -38,6 +43,8 @@ function getQuestions(){
    });
 }
 
-function answer(ans){
-   console.log(ans);
+function saveAnswer(){
+   $.get("questions.xml", function(data){
+      
+   });
 }
