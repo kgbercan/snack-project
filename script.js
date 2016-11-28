@@ -1,9 +1,9 @@
 qNum = 0;
 aNum = 0;
 // sweet > healthy > prep > hot
-answers = {"true": {"true": {"true": {"true": "SNACK A: seasonal, healthy, prep, hot", "false": "SNACK B: seasonal, healthy, prep, cold"}, "false": {"true": "SNACK C: seasonal, healthy, no prep, hot", "false": "SNACK D: seasonal, healthy, no prep, cold"}},"false": {"true": {"true": "SNACK E: seasonal, unhealthy, prep, hot","false": "SNACK F: seasonal, unhealthy, prep, cold"}, "false": {"true": "SNACK G: seasonal, unhealthy, no prep, hot","false": "SNACK H: seasonal, unhealthy, no prep, cold"}},}, "false": {"true": {"true": {"true": "SNACK I: not seasonal, healthy, prep, hot", "false": "SNACK J: not seasonal, healthy, prep, cold"}, "false": {"true": "SNACK K: not seasonal, healthy, no prep, hot", "false": "SNACK L: not seasonal, healthy, no prep, cold"}}, "false": {"true": {"true": "SNACK M: not seasonal, unhealthy, prep, hot", "false": "SNACK N: not seasonal, unhealthy, prep, cold"}, "false": {"true": "SNACK O: not seasonal, unhealthy, no prep, hot", "false": "SNACK P: not seasonal, unhealthy, no prep, cold"}},},};
+answers = {true: {true: {true: {true: "Healthy Pumpkin Cheesecake Muffin", false: "Vegan Pumpkin Pie Energy Bars"}, false: {true: "Hemp and Maple Pecan Oatmeal", false: "Banana Maple Yogurt Parfait"}},false: {true: {true: "Sweet Butter Cookies",false: "Macadamia Toffee Brittle"}, false: {true: "Godiva Hot Chocolate",false: "Aldi Mini Eclairs"}},}, false: {true: {true: {true: "Broccoli Cheese Bites", false: "Edimame Crostini With Pears"}, false: {true: "Pre-Made Soup", false: "Trader Joes Green Bean Chips"}}, false: {true: {true: "Bacon-Wrapped Little Smokies", false: "SNACK N: not seasonal, unhealthy, prep, cold"}, false: {true: "Tostitos Creamy Spinach Dip with Chips", false: "Chips"}},},};
 
-// audio controls 	
+// audio controls
 var music = document.getElementById('music');
 
 function playAudio() {
@@ -11,7 +11,7 @@ function playAudio() {
 		music.play();
 		pButton.className = "";
 		pButton.className = "pause";
-	} else { 
+	} else {
 		music.pause();
 		pButton.className = "";
 		pButton.className = "play";
@@ -27,7 +27,7 @@ $(document).ready(function(){
       answer(false)
    })
    $("#results").click(function(){
-      getResults(answers);  
+      getResults();
    })
 });
 
@@ -42,7 +42,9 @@ function start(){
 
 function answer(ans){
    getQuestions();
-   saveAnswer(ans);
+	if(qNum>0){
+	   saveAnswer(ans);
+	}
 }
 
 function getQuestions(){
@@ -55,7 +57,7 @@ function getQuestions(){
       else {
          $("#question").html("You've completed the quiz.<br>")
          $("#yes").addClass("hidden")
-		 $("#no").addClass("hidden")
+		 	$("#no").addClass("hidden")
          $("#start").addClass("hidden")
          $("#results").removeClass("hidden")
       }
@@ -64,22 +66,21 @@ function getQuestions(){
 }
 
 function saveAnswer(ans){
+	console.log(answers);
    $.get("questions.xml", function(data){
       var $a = $(data).find("a")
       if (aNum < $a.length){
          $a[aNum].firstChild.nodeValue = ans
          answers = answers[ans]
-      }
-      else{
-         $("#question").html(answers)
+			console.log(answers[ans])
       }
       aNum += 1
    });
 }
 
-function getResults(answers){
+function getResults(){
    //display answer
-   
-   $("#results").addClass("hidden")
-   $("#details").removeClass("hidden")
+   $("#results").addClass("hidden");
+   $("#details").removeClass("hidden");
+	$("#question").html(answers);
 }
