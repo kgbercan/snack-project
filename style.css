@@ -9,6 +9,8 @@ h1{
 	color: #EC7063;
 	letter-spacing: 8px;
 	text-transform: uppercase;
+	animation-duration: 2.5s;
+	animation-name: slidein;
 }
 
 .col-lg-12{
@@ -52,6 +54,8 @@ p, img{
 
 #start:hover, #results:hover, #details:hover{
 	background-color: #F7DC6F;
+	animation-duration: 2s;
+	animation-name: dance;
 }
 
 #yes:hover{
@@ -60,6 +64,11 @@ p, img{
 
 #no:hover{
 	background-color: #5DADE2;
+}
+
+#start:active, #results:active, #details:active, #yes:active, #no:active{
+	animation-duration: 2s;
+	animation-name: dance;
 }
 
 @media screen and (max-width: 1600px){
@@ -96,4 +105,42 @@ p, img{
 		margin-right: 25px;
 
 	}
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 100%; 
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+@keyframes dance {
+0% {transform: rotate(7deg);}
+10% {transform: rotate(-7deg);}
+20% {transform: rotate(7deg);}
+30% {transform: rotate(-7deg);}
+40% {transform: rotate(7deg);}
+50% {transform: rotate(-7deg);}
+60% {transform: rotate(7deg);}
+70% {transform: rotate(-7deg);}
+80% {transform: rotate(7deg);}
+90% {transform: rotate(-7deg);}
+100% {transform: rotate(7deg);}
+}
+
+#pButton{
+	height:60px; 
+	width: 60px;
+	border: none;
+	background-size: 50% 50%;
+	background-position: center;
+}
+.play{
+background: url('../images/play.png') no-repeat;}
+.pause{
+background: url('../images/pause.png') no-repeat;}
 }
