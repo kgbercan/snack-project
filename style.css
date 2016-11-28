@@ -110,7 +110,7 @@ p, img{
 @keyframes slidein {
   from {
     margin-left: 100%;
-    width: 100%; 
+    width: 100%;
   }
   to {
     margin-left: 0%;
@@ -133,7 +133,7 @@ p, img{
 }
 
 #pButton{
-	height:60px; 
+	height:60px;
 	width: 60px;
 	border: none;
 	background-size: 50% 50%;
