@@ -23,13 +23,12 @@ p, img{
 	margin-left: 10%;
 }
 
-
 .affix{
 	bottom: 20px;
 	left: 20px;
 	right: 20px;
 	width: 100%;
-	height: 22%;
+	height: 18%;
 }
 
 .btn-primary{
@@ -45,27 +44,13 @@ p, img{
 	text-align: center;
 }
 
-#start{
+#start, #results, #details{
 	background-color: #FAD7A0;
 	border: transparent;
+	font-size: 300%;
 }
 
-#yes{
-	font-size: 460%;
-	width: 49%;
-	background-color: #82E0AA;
-	border: transparent;
-}
-
-#no{
-	font-size: 460%;
-	width: 49%;
-	background-color: #AED6F1;
-	border: transparent;
-
-}
-
-#start:hover{
+#start:hover, #results:hover, #details:hover{
 	background-color: #F7DC6F;
 }
 
@@ -77,10 +62,38 @@ p, img{
 	background-color: #5DADE2;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 1600px){
+	#yes{
+		font-size: 480%;
+		width: 45%;
+		background-color: #82E0AA;
+		border: transparent;
+	}
 
+	#no{
+		font-size: 460%;
+		width: 45%;
+		background-color: #AED6F1;
+		border: transparent;
+		margin-right: 25px;
+
+	}
 }
 
-@media screen and (max-width: 412px){
+@media screen and (max-width: 736px){
+	#yes{
+		font-size: 400%;
+		width: 48%;
+		background-color: #82E0AA;
+		border: transparent;
+	}
 
+	#no{
+		font-size: 400%;
+		width: 48%;
+		background-color: #AED6F1;
+		border: transparent;
+		margin-right: 25px;
+
+	}
 }
