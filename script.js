@@ -87,5 +87,10 @@ function getResults(){
    $("#results").addClass("hidden");
    $("#details").removeClass("hidden");
 	$("#question").html(answers);
-	$("#question").append("<img src='" + photos[answers] + "' alt='" + answers + "' class='img-responsive'>")
+
+	$("#snackImage").removeClass("hidden");
+	$("#snackImage").attr("src", photos[answers]);
+	$("#snackImage").attr("alt", answers);
+
+	$("#details").attr("href",details[answers]);
 }
