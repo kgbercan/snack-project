@@ -26,7 +26,10 @@ p{
 }
 
 img{
-	margin: 100px;
+	height: auto;
+   width: auto;
+   max-width: 350px;
+   max-height: 350px;
 }
 
 .affix{
@@ -134,17 +137,4 @@ img{
 80% {transform: rotate(7deg);}
 90% {transform: rotate(-7deg);}
 100% {transform: rotate(7deg);}
-}
-
-#pButton{
-	height:60px;
-	width: 60px;
-	border: none;
-	background-size: 50% 50%;
-	background-position: center;
-}
-.play{
-background: url('../images/play.png') no-repeat;}
-.pause{
-background: url('../images/pause.png') no-repeat;}
 }

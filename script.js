@@ -7,20 +7,6 @@ details = {"Healthy Pumpkin Cheesecake Muffin":"http://thebigmansworld.com/2014/
 
 photos = {"Healthy Pumpkin Cheesecake Muffin":"photos/pumpkin_Cheesecake_muffins3.jpg", "Vegan Pumpkin Pie Energy Bars":"photos/pumpkinPieProteinBars.jpg", "Hemp and Maple Pecan Oatmeal":"photos/Hemp_Maple_Pecan_Oatmeal.jpg", "Banana Maple Yogurt Parfait":"photos/Banana-Maple-Yogurt-Parfait-3b.jpg", "Sweet Butter Cookies":"photos/Butter-Cookies2.jpg", "Macadamia Toffee Brittle":"photos/toffee_brittle.jpg", "Godiva Hot Chocolate":"photos/hotChocolate.jpg", "Aldi Mini Eclairs":"photos/miniEclairs.jpg", "Broccoli Cheese Bites":"photos/broccoli-cheese-bites.jpg", "Edimame Crostini With Pears":"photos/edamamePearCrostini.jpg", "Trader Joes Green Bean Chips":"photos/green-beans1.jpg", "Pre-Made Soup":"photos/pacific-creamy-tomato-soup.jpg", "Bacon-Wrapped Little Smokies":"photos/bacon-wrapped-smokies.jpg", "Tostitos Creamy Spinach Dip with Chips":"photos/tostitos-dip-creamy-spinach.png", "Chips":"photos/capecod-potatochips.jpg", "Italian Cold Cuts Roll-Up":"photos/coldcuts-rollup.jpg"}
 
-// audio controls
-var music = document.getElementById('music');
-
-function playAudio() {
-	if (music.paused) {
-		music.play();
-		pButton.className = "";
-		pButton.className = "pause";
-	} else {
-		music.pause();
-		pButton.className = "";
-		pButton.className = "play";
-	}
-}
 
 $(document).ready(function(){
    $("#start").click(start)
