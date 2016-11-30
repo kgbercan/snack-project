@@ -101,19 +101,22 @@ img{
 
 @media screen and (max-width: 736px){
 	#yes{
-		font-size: 400%;
-		width: 48%;
+		font-size: 350%;
+		width: 46%;
 		background-color: #82E0AA;
 		border: transparent;
 	}
 
 	#no{
-		font-size: 400%;
-		width: 48%;
+		font-size: 350%;
+		width: 46%;
 		background-color: #AED6F1;
 		border: transparent;
 		margin-right: 25px;
-
+	}
+	p{
+		font-size: 200%;
+		padding-top: 10px;
 	}
 }
 
